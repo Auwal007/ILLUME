@@ -1,0 +1,15 @@
+
+> illume-website@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+- Environments: .env.local, .env
+✓ Ready in 535ms
+
+○ Compiling / ...
+ GET / 200 in 7.4s (next.js: 6.5s, application-code: 932ms)
+✓ Compiled in 342ms
+ GET / 200 in 472ms (next.js: 72ms, application-code: 401ms)
+ GET / 200 in 518ms (next.js: 81ms, application-code: 437ms)

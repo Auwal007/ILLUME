@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #000000;
+  --color-brand-gold: #D4AF37;
+  --color-brand-deep-gold: #B8860B;
+  --color-brand-purple: #301934;
+  --color-brand-milk: #F5F5DC;
+  --color-brand-white: #FFFFFF;
+  --font-display: "Playfair Display", serif;
+  --font-ui: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-white text-brand-black antialiased font-ui;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
