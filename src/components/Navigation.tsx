@@ -29,14 +29,17 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-22">
-            <Link href="/" className="flex-shrink-0 flex items-center group">
+            <Link href="/" className="flex-shrink-0 flex items-center gap-3 group">
               <Image
                 src="/img/logo.png"
                 alt="ILLUME Logo"
-                width={130}
-                height={45}
-                className="h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-102"
+                width={40}
+                height={40}
+                className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-102"
               />
+              <span className="font-display text-2xl md:text-3xl font-bold tracking-[0.32em] text-brand-black transition-colors duration-300 group-hover:text-brand-deep-gold">
+                ILLUME
+              </span>
             </Link>
 
             <div className="hidden md:flex items-center space-x-10">
