@@ -20,7 +20,8 @@ export default async function AdminLayout({
               alt="ILLUME Logo"
               width={32}
               height={32}
-              className="h-8 w-auto object-contain brightness-0 invert"
+              style={{ width: "auto" }}
+              className="h-8 object-contain brightness-0 invert"
             />
             <div>
               <span className="font-display text-xl font-bold tracking-wider text-white">ILLUME</span>

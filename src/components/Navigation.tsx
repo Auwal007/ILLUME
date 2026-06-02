@@ -35,7 +35,8 @@ export default function Navigation() {
                 alt="ILLUME Logo"
                 width={40}
                 height={40}
-                className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-102"
+                style={{ width: "auto" }}
+                className="h-10 object-contain transition-transform duration-300 group-hover:scale-102"
               />
               <span className="font-display text-2xl md:text-3xl font-bold tracking-[0.32em] text-brand-black transition-colors duration-300 group-hover:text-brand-deep-gold">
                 ILLUME

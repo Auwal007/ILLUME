@@ -13,7 +13,8 @@ export default function Footer() {
                 alt="ILLUME Logo"
                 width={36}
                 height={36}
-                className="h-9 w-auto object-contain brightness-0 invert"
+                style={{ width: "auto" }}
+                className="h-9 object-contain brightness-0 invert"
               />
               <span className="font-display text-2xl font-bold tracking-[0.2em] text-brand-gold">
                 ILLUME
