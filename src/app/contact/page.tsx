@@ -155,7 +155,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-12 border-t border-gray-200">
               <div>
                 <h4 className="font-display text-xl font-semibold text-brand-gold mb-4">Abuja Atelier</h4>
-                <p className="text-gray-600">Kubwa, Abuja<br />Federal Capital Territory<br />Nigeria</p>
+                <p className="text-gray-600">2nd Gate, Opposite ECWA Church<br />Kubwa Street, Abuja<br />FCT, Nigeria</p>
               </div>
               <div>
                 <h4 className="font-display text-xl font-semibold text-brand-gold mb-4">Ebonyi Atelier</h4>

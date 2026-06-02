@@ -3,7 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import AnnouncementBar from "@/components/AnnouncementBar";
+import FloatingCTA from "@/components/FloatingCTA";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -26,14 +26,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="antialiased min-h-screen flex flex-col font-ui bg-brand-white text-brand-black">
-        <AnnouncementBar />
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`} suppressHydrationWarning>
+      <body className="antialiased min-h-screen flex flex-col font-ui bg-surface-1 text-text-primary" suppressHydrationWarning>
         <Navigation />
         <main className="flex-grow">
           {children}
         </main>
         <Footer />
+        <FloatingCTA />
       </body>
     </html>
   );

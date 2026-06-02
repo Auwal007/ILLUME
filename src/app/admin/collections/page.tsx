@@ -32,6 +32,10 @@ export default async function AdminCollections() {
               <input type="text" name="slug" required className="w-full px-4 py-2 border border-gray-300 focus:outline-none focus:border-brand-gold" />
             </div>
             <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Collection Image</label>
+              <input type="file" name="image" accept="image/*" className="w-full px-4 py-2 border border-gray-300 focus:outline-none focus:border-brand-gold text-sm" />
+            </div>
+            <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
               <textarea name="description" rows={3} className="w-full px-4 py-2 border border-gray-300 focus:outline-none focus:border-brand-gold"></textarea>
             </div>
@@ -45,6 +49,7 @@ export default async function AdminCollections() {
           <table className="w-full text-left">
             <thead className="bg-gray-50 border-b border-gray-100">
               <tr>
+                <th className="p-4 font-medium text-gray-600 text-sm w-16">Image</th>
                 <th className="p-4 font-medium text-gray-600 text-sm">Name</th>
                 <th className="p-4 font-medium text-gray-600 text-sm">Status</th>
                 <th className="p-4 font-medium text-gray-600 text-sm">Products</th>
@@ -54,11 +59,20 @@ export default async function AdminCollections() {
             <tbody className="divide-y divide-gray-100">
               {collections.length === 0 ? (
                 <tr>
-                  <td colSpan={4} className="p-8 text-center text-gray-500">No collections found</td>
+                  <td colSpan={5} className="p-8 text-center text-gray-500">No collections found</td>
                 </tr>
               ) : (
                 collections.map((collection) => (
                   <tr key={collection.id} className="hover:bg-gray-50">
+                    <td className="p-4">
+                      <div className="relative w-12 h-16 bg-gray-100 border border-gray-200 overflow-hidden flex items-center justify-center">
+                        <img
+                          src={collection.image || "/images/hero_bridal.png"}
+                          alt={collection.name}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                    </td>
                     <td className="p-4 font-medium">{collection.name}</td>
                     <td className="p-4">
                       <span className={`px-2 py-1 text-xs font-medium rounded-full ${collection.isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>

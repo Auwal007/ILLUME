@@ -7,13 +7,41 @@
   --color-brand-purple: #301934;
   --color-brand-milk: #F5F5DC;
   --color-brand-white: #FFFFFF;
+  --color-surface-1: #FBF9F5;
+  --color-surface-2: #F2ECE2;
+  --color-surface-3: #1A1613;
+  --color-surface-4: #0F0D0C;
+  --color-text-primary: #161310;
+  --color-text-muted: #5C524B;
+  --color-text-inverse: #F7F3EE;
+  --color-border-subtle: #E6DDD2;
+  --color-border-strong: #C9B79F;
+  --color-accent: #D4AF37;
+  --color-accent-strong: #B8860B;
   --font-display: "Playfair Display", serif;
   --font-ui: "Inter", sans-serif;
 }
 
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-brand-white text-brand-black antialiased font-ui;
+    @apply bg-surface-1 text-text-primary antialiased font-ui;
+    background-image:
+      radial-gradient(1200px circle at 8% -10%, rgba(212, 175, 55, 0.10), transparent 55%),
+      radial-gradient(900px circle at 92% 12%, rgba(0, 0, 0, 0.05), transparent 50%),
+      linear-gradient(180deg, #FBF9F5 0%, #F7F3EE 100%);
+  }
+
+  ::selection {
+    background: rgba(212, 175, 55, 0.28);
+    color: #161310;
   }
 }
 

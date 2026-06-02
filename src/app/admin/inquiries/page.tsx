@@ -2,7 +2,8 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
 import prisma from "@/lib/prisma"
-import { deleteInquiry, updateInquiryStatus } from "@/app/actions/admin"
+import { deleteInquiry } from "@/app/actions/admin"
+import InquiryStatusSelect from "@/components/admin/InquiryStatusSelect"
 
 export default async function AdminInquiries() {
   const session = await getServerSession(authOptions)
@@ -45,26 +46,7 @@ export default async function AdminInquiries() {
                   </td>
                   <td className="p-4 text-sm text-gray-600">{inquiry.service || '-'}</td>
                   <td className="p-4">
-                    <form action={async (formData: FormData) => {
-                      "use server"
-                      const status = formData.get("status") as string
-                      await updateInquiryStatus(inquiry.id, status)
-                    }}>
-                      <select
-                        name="status"
-                        defaultValue={inquiry.status}
-                        onChange={e => e.target.form?.requestSubmit()}
-                        className={`px-2 py-1 text-xs font-medium rounded-full border-none focus:ring-0 cursor-pointer ${
-                          inquiry.status === 'NEW' ? 'bg-blue-100 text-blue-800' :
-                          inquiry.status === 'CONTACTED' ? 'bg-yellow-100 text-yellow-800' :
-                          'bg-green-100 text-green-800'
-                        }`}
-                      >
-                        <option value="NEW">NEW</option>
-                        <option value="CONTACTED">CONTACTED</option>
-                        <option value="CLOSED">CLOSED</option>
-                      </select>
-                    </form>
+                    <InquiryStatusSelect inquiryId={inquiry.id} initialStatus={inquiry.status} />
                   </td>
                   <td className="p-4 text-sm text-gray-600">{new Date(inquiry.createdAt).toLocaleDateString()}</td>
                   <td className="p-4">
