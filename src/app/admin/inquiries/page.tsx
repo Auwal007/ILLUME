@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
-import prisma from "@/lib/prisma"
+import { getInquiries } from "@/lib/db"
 import { deleteInquiry } from "@/app/actions/admin"
 import InquiryStatusSelect from "@/components/admin/InquiryStatusSelect"
 
@@ -9,9 +9,7 @@ export default async function AdminInquiries() {
   const session = await getServerSession(authOptions)
   if (!session) redirect("/admin/login")
 
-  const inquiries = await prisma.inquiry.findMany({
-    orderBy: { createdAt: 'desc' }
-  })
+  const inquiries = await getInquiries()
 
   return (
     <div className="p-8">

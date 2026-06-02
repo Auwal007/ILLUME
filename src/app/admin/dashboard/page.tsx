@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
-import prisma from "@/lib/prisma"
+import { getInquiries, getProducts, getCategories, getTestimonials } from "@/lib/db"
 
 export default async function AdminDashboard() {
   const session = await getServerSession(authOptions)
@@ -10,17 +10,19 @@ export default async function AdminDashboard() {
     redirect("/admin/login")
   }
 
-  const [inquiriesCount, productsCount, categoriesCount, testimonialsCount] = await Promise.all([
-    prisma.inquiry.count(),
-    prisma.product.count(),
-    prisma.category.count(),
-    prisma.testimonial.count(),
+  const [inquiries, products, categories, testimonials] = await Promise.all([
+    getInquiries(),
+    getProducts(false),
+    getCategories(),
+    getTestimonials()
   ])
 
-  const recentInquiries = await prisma.inquiry.findMany({
-    take: 5,
-    orderBy: { createdAt: 'desc' }
-  })
+  const inquiriesCount = inquiries.length
+  const productsCount = products.length
+  const categoriesCount = categories.length
+  const testimonialsCount = testimonials.length
+
+  const recentInquiries = inquiries.slice(0, 5)
 
   return (
     <div className="p-8">

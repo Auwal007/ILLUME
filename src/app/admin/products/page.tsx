@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
-import prisma from "@/lib/prisma"
+import { getProducts, getCategories } from "@/lib/db"
 import { createProduct, deleteProduct } from "@/app/actions/admin"
 import Link from "next/link"
 
@@ -9,12 +9,8 @@ export default async function AdminProducts() {
   const session = await getServerSession(authOptions)
   if (!session) redirect("/admin/login")
 
-  const products = await prisma.product.findMany({
-    include: { category: true, collection: true },
-    orderBy: { createdAt: 'desc' }
-  })
-
-  const categories = await prisma.category.findMany()
+  const products = await getProducts(false)
+  const categories = await getCategories()
 
   return (
     <div className="p-8">

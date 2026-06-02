@@ -1,4 +1,4 @@
-import prisma from "@/lib/prisma"
+import { getProductBySlug } from "@/lib/db"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
@@ -95,11 +95,8 @@ interface PageProps {
 export default async function ProductDetailPage({ params }: PageProps) {
   const { slug } = await params
 
-  // 1. Query Prisma DB
-  const dbProduct = await prisma.product.findUnique({
-    where: { slug },
-    include: { category: true }
-  })
+  // 1. Query Firestore DB
+  const dbProduct = await getProductBySlug(slug)
 
   let product = null
 

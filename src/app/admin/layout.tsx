@@ -1,6 +1,7 @@
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import Link from "next/link"
+import Image from "next/image"
 
 export default async function AdminLayout({
   children,
@@ -14,8 +15,14 @@ export default async function AdminLayout({
       {session && (
         <aside className="w-full md:w-64 bg-brand-black text-white p-6 shrink-0 md:min-h-screen">
           <div className="mb-10">
-            <h2 className="font-display text-2xl font-bold tracking-wider">ILLUME</h2>
-            <p className="text-xs text-brand-gold mt-1 uppercase tracking-widest">Admin</p>
+            <Image
+              src="/img/logo.png"
+              alt="ILLUME Logo"
+              width={110}
+              height={35}
+              className="h-8 w-auto object-contain brightness-0 invert"
+            />
+            <p className="text-xs text-brand-gold mt-2 uppercase tracking-widest">Admin</p>
           </div>
           <nav className="space-y-2">
             <Link href="/admin/dashboard" className="block px-4 py-2 hover:bg-white/10 rounded transition-colors text-sm font-medium">Dashboard</Link>

@@ -1,13 +1,10 @@
-import prisma from "@/lib/prisma"
+import { getCollections } from "@/lib/db"
 import Link from "next/link"
 import Image from "next/image"
 import WhatsAppCTA from "@/components/WhatsAppCTA"
 
 export default async function CollectionsPage() {
-  const collections = await prisma.collection.findMany({
-    where: { isActive: true },
-    include: { products: { take: 4 } }
-  })
+  const collections = await getCollections(true)
 
   // Static fallback if no collections exist in DB
   const fallbackCollections = [
@@ -102,7 +99,7 @@ export default async function CollectionsPage() {
                   <div className="mb-10">
                     <span className="text-[0.7rem] uppercase tracking-widest text-text-muted font-bold block mb-4">Preview Pieces</span>
                     <div className="grid grid-cols-2 gap-4">
-                      {collection.products.map(p => (
+                      {collection.products.map((p: any) => (
                         <Link href={`/catalogue/${p.slug}`} key={p.id} className="group cursor-pointer flex items-center gap-4 bg-surface-2 p-3 rounded-xl border border-brand-gold/5 hover:border-brand-gold/30 transition-colors">
                           <div className="w-12 h-12 rounded-lg bg-surface-3 relative overflow-hidden shrink-0">
                             <Image

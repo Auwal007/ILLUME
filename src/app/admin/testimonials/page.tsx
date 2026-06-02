@@ -1,16 +1,14 @@
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
-import prisma from "@/lib/prisma"
+import { getTestimonials } from "@/lib/db"
 import { createTestimonial, deleteTestimonial } from "@/app/actions/admin"
 
 export default async function AdminTestimonials() {
   const session = await getServerSession(authOptions)
   if (!session) redirect("/admin/login")
 
-  const testimonials = await prisma.testimonial.findMany({
-    orderBy: { createdAt: 'desc' }
-  })
+  const testimonials = await getTestimonials()
 
   return (
     <div className="p-8">

@@ -1,4 +1,4 @@
-import prisma from "@/lib/prisma"
+import { getProducts, getCategories } from "@/lib/db"
 import Link from "next/link"
 import Image from "next/image"
 import WhatsAppCTA from "@/components/WhatsAppCTA"
@@ -54,12 +54,8 @@ const FALLBACK_PRODUCTS = [
 ]
 
 export default async function CataloguePage() {
-  const products = await prisma.product.findMany({
-    where: { isActive: true },
-    include: { category: true }
-  })
-
-  const dbCategories = await prisma.category.findMany()
+  const products = await getProducts(true)
+  const dbCategories = await getCategories()
 
   // If DB is empty, use fallbacks
   const displayProducts = products.length > 0

@@ -1,17 +1,14 @@
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { redirect } from "next/navigation"
-import prisma from "@/lib/prisma"
+import { getAllCollections } from "@/lib/db"
 import { createCollection, deleteCollection } from "@/app/actions/admin"
 
 export default async function AdminCollections() {
   const session = await getServerSession(authOptions)
   if (!session) redirect("/admin/login")
 
-  const collections = await prisma.collection.findMany({
-    include: { _count: { select: { products: true } } },
-    orderBy: { createdAt: 'desc' }
-  })
+  const collections = await getAllCollections()
 
   return (
     <div className="p-8">

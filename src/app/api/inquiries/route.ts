@@ -1,23 +1,22 @@
 import { NextResponse } from "next/server"
-import prisma from "@/lib/prisma"
+import { createInquiry } from "@/lib/db"
 
 export async function POST(req: Request) {
   try {
     const body = await req.json()
     const { name, email, phone, service, message } = body
 
-    const inquiry = await prisma.inquiry.create({
-      data: {
-        name,
-        email,
-        phone,
-        service,
-        message,
-        status: "NEW"
-      }
-    })
+    const inquiryData = {
+      name,
+      email,
+      phone,
+      service,
+      message
+    }
 
-    return NextResponse.json(inquiry, { status: 201 })
+    await createInquiry(inquiryData)
+
+    return NextResponse.json({ ...inquiryData, status: "NEW", createdAt: new Date().toISOString() }, { status: 201 })
   } catch (error) {
     console.error("Error creating inquiry:", error)
     return NextResponse.json({ error: "Failed to create inquiry" }, { status: 500 })

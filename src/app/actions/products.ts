@@ -1,22 +1,10 @@
 "use server"
 
-import prisma from "@/lib/prisma"
+import { getFeaturedProducts as getFeaturedDb } from "@/lib/db"
 
 export async function getFeaturedProducts() {
   try {
-    const products = await prisma.product.findMany({
-      where: {
-        isFeatured: true,
-        isActive: true,
-      },
-      include: {
-        category: true,
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-    })
-    return products
+    return await getFeaturedDb()
   } catch (error) {
     console.error("Failed to fetch featured products:", error)
     return []

@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Footer() {
   return (
@@ -6,7 +7,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
           <div className="col-span-1">
-            <h2 className="font-display text-2xl font-bold tracking-[0.2em] text-brand-gold mb-6">ILLUME</h2>
+            <div className="mb-6">
+              <Image
+                src="/img/logo.png"
+                alt="ILLUME Logo"
+                width={120}
+                height={40}
+                className="h-10 w-auto object-contain brightness-0 invert"
+              />
+            </div>
             <p className="text-white/60 text-xs leading-relaxed mb-6 font-ui tracking-wide">
               African luxury fashion house. Bespoke bridals, tailored suits, and culturally rooted elegance. Crafted in light, operating from Abuja & Ebonyi, shipping globally.
             </p>
