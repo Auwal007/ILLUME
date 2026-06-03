@@ -231,7 +231,7 @@ export default function Home() {
             <span className="text-brand-gold font-normal">but felt.</span>"
           </blockquote>
           <div className="w-16 h-px bg-brand-gold/40 mx-auto mb-6" />
-          <div className="text-text-muted font-ui tracking-[0.2em] text-xs uppercase font-semibold">— Ikedichukwu Peace, Founder</div>
+          <div className="text-text-muted font-ui tracking-[0.2em] text-xs uppercase font-semibold">Founder</div>
         </motion.div>
       </section>
 

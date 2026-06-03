@@ -43,9 +43,9 @@ export default function AboutPage() {
                 "We do not create by chance — every detail is deliberate, every finish refined. True luxury does not shout. It radiates."
               </blockquote>
             </div>
-            <div className="mt-10 font-display text-xl italic text-brand-black font-semibold">
+            {/* <div className="mt-10 font-display text-xl italic text-brand-black font-semibold">
               — Ikedichukwu Peace
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
