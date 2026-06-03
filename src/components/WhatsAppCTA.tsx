@@ -17,7 +17,7 @@ export default function WhatsAppCTA({
   className = "",
   fullWidth = false
 }: WhatsAppCTAProps) {
-  const phoneNumber = "2348130024904" // From original index.html
+  const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_PHONE || "2348130024904" // From original index.html
 
   const handleClick = () => {
     // We log the click here in a real production app (analytics)
