@@ -25,7 +25,7 @@ export async function ensureInitialized() {
       // Seed default admin user
       const hashedPassword = await bcrypt.hash("admin123", 10)
       await addDoc(collection(db, "users"), {
-        email: "admin@illume.com",
+        email: "admin@illume.ng",
         name: "Admin User",
         password: hashedPassword,
         role: "ADMIN",
