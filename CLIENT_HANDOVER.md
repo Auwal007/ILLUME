@@ -9,14 +9,34 @@ To ensure the client feels fully supported and empowered to manage their luxury 
 
 | Document Title | Target Audience | Description & Value |
 | :--- | :--- | :--- |
-| **1. Admin & Content Management Guide** | Store Manager / Client | Step-by-step instructions on logging into `/admin`, managing products (adding gowns/suits, updating prices), organizing collections, and handling client inquiries. |
-| **2. Media Asset Specification Sheet** | Photographer / Client | Detailed dimensions, file sizes, and aesthetic guidelines for replacing the current AI-generated placeholder images. |
-| **3. Client Review & Feedback Sheet** | Client / Stakeholders | A structured template (Word or Google Sheet) for logging copy edits, design tweaks, or adjustments during this final review phase. |
-| **4. Technical Handover & Credentials Sheet** | Client's Tech Lead / Files | Details on hosting (e.g., Vercel), database credentials (Firebase), WhatsApp CTA numbers, and domain settings. |
+| **1. [Admin & Content Management Guide](file:///c:/Users/Auwal/Desktop/ILLUME/handover_docs/1_Admin_Guide.md)** | Store Manager / Client | Step-by-step instructions on logging into `/admin`, managing products (adding gowns/suits, updating prices), organizing collections, and handling client inquiries. |
+| **2. [Media Asset Specification Sheet](file:///c:/Users/Auwal/Desktop/ILLUME/handover_docs/2_Media_Specifications.md)** | Photographer / Client | Detailed dimensions, file sizes, and aesthetic guidelines for replacing the current AI-generated placeholder images. |
+| **3. [Client Review & Feedback Sheet](file:///c:/Users/Auwal/Desktop/ILLUME/handover_docs/3_Feedback_Sheet.md)** | Client / Stakeholders | A structured template (Word or Google Sheet) for logging copy edits, design tweaks, or adjustments during this final review phase. |
+| **4. [Technical Handover & Credentials Sheet](file:///c:/Users/Auwal/Desktop/ILLUME/handover_docs/4_Technical_Specs.md)** | Client's Tech Lead / Files | Details on hosting (e.g., Vercel), database credentials (Firebase), WhatsApp CTA numbers, and domain settings. |
 
 ---
 
-## 2. Crucial Notice: AI-Generated Media & Replacement
+## 2. Admin Dashboard & Login Credentials
+The administration portal allows the store manager or designer to manage the site's live content without touching any code.
+
+*   **Admin Access URL:** [https://illume.ng/admin](https://illume.ng/admin) (or `http://localhost:3000/admin` on local dev)
+*   **Default Administrator Email:** `admin@illume.ng`
+*   **Default Administrator Password:** `admin123`
+
+> [!WARNING]
+> **Security Notice:** The default password (`admin123`) must be changed in the production database configuration immediately after the client takes over to ensure system security.
+
+### What the Client Can Manage in the Admin Portal:
+1.  **Dashboard Overview:** View site metrics, including total inquiries, active products, categories, and testimonials.
+2.  **Product Management:** Add, edit, feature, or remove luxury items (dresses, suits, accessories) in the catalog.
+3.  **Categories Management:** Edit clothing categories (e.g., *Bridals & Asoebi*, *Suits & Dinner*, *African Luxury*).
+4.  **Collections Management:** Create seasonal style lookbooks or collections (e.g., *Summer Couture 2026*).
+5.  **Testimonials Management:** Manage customer reviews appearing on the homepage.
+6.  **Inquiries Viewer:** Access and update statuses (e.g., *NEW*, *CONTACTED*, *COMPLETED*) of all leads submitted through the contact forms.
+
+---
+
+## 3. Crucial Notice: AI-Generated Media & Replacement
 To achieve a premium and visually stunning design during development, we utilized highly curated, custom AI-generated images. These act as high-fidelity placeholders that match the luxury brand identity of ILLUME.
 
 > [!IMPORTANT]
@@ -35,7 +55,7 @@ Once the client provides their professional photography, we can replace the file
 
 ---
 
-## 3. Inviting Client Feedback & Design Adjustments
+## 4. Inviting Client Feedback & Design Adjustments
 We want to make sure the site matches the client's creative vision perfectly. Encourage them to review the site thoroughly and provide input on the following:
 
 > [!TIP]
@@ -54,7 +74,7 @@ We want to make sure the site matches the client's creative vision perfectly. En
 
 ---
 
-## 4. Key Platform Features & Technical Details
+## 5. Key Platform Features & Technical Details
 Provide the client with a quick overview of the modern features we have built for them:
 
 *   **Premium Interactive Design:** Smooth scrolling and animations powered by Framer Motion, matching elite fashion labels.
@@ -66,8 +86,8 @@ Provide the client with a quick overview of the modern features we have built fo
 
 ---
 
-## 5. Recommended Next Steps Checklist
-Before going live on the client's custom domain (e.g., `illume.com`):
+## 6. Recommended Next Steps Checklist
+Before going live on the client's custom domain (e.g., `illume.ng`):
 
 - [ ]  **Review Admin Login Credentials:** Reset the default administrator password in the database from `admin123` to a secure, unique phrase.
 - [ ]  **Verify WhatsApp Numbers:** Update the phone numbers in the environment variables to the client's official customer care lines.
